@@ -1,5 +1,5 @@
 :root {
-  --primary-color: #6a8ade;
+  --primary-color: #405eb0;
   --level-1: #104b8c;
   --level-2: #fbb2dd;
   --level-3: #6cfffe;
@@ -13,7 +13,12 @@
 
 html {
   font-family: "Outfit", sans-serif;
-  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 img {
@@ -33,7 +38,7 @@ ul {
 h3 {
   background-color: #f7f7f7;
   font-size: 2.25rem;
-  color: #a4a4a4;
+  color: #595959;
   padding: 50px 0 55px 20px;
 }
 .flex-header-bg {
@@ -50,7 +55,7 @@ h3 {
   color: #fff;
 }
 
-.flex-header h1 {
+.site-title {
   font-size: 2rem;
   font-weight: 500;
 }
@@ -60,7 +65,7 @@ h3 {
   justify-content: center;
   font-size: 1.25rem;
   font-weight: 400;
-  gap: 40px;
+  gap: 12px clamp(12px, 4vw, 40px);
 }
 
 .flex-main {
@@ -79,7 +84,7 @@ h3 {
   margin: 60px 0 40px 0;
 }
 
-.flex-main > h2 {
+.flex-main section > h2 {
   font-weight: 600;
   margin-bottom: 40px;
 }
@@ -140,7 +145,7 @@ h3 {
 }
 
 .content-element {
-  flex: 1;
+  flex: 1 1 10rem;
 }
 
 span {
@@ -164,13 +169,13 @@ span {
   display: flex;
   flex-wrap: wrap;
   background-color: #f7f7f7;
-  padding: 60px 120px 0px 120px;
+  padding: 60px clamp(20px, 8vw, 120px);
   gap: 30px;
   justify-content: center;
 }
 
 .flex-qualities h2 {
-  color: #959595;
+  color: #595959;
   display: flex;
   font-weight: 500;
   flex-wrap: wrap;
@@ -199,14 +204,13 @@ span {
 }
 
 .flex-qualities p {
-  color: #959595;
+  color: #595959;
   font-size: 1.25rem;
   margin-top: 20px;
 }
 
 .flex-qualities div {
-  width: calc(33.333% - 60px);
-  margin-bottom: 80px;
+  flex: 0 1 calc((100% - 60px) / 3);
 }
 
 @media (max-width: 68rem) {
@@ -258,20 +262,8 @@ span {
 }
 
 @media (max-width: 56rem) {
-  .flex-qualities h2::before {
-    display: none;
-  }
-
-  .flex-qualities h2 {
-    font-size: 2rem;
-  }
-  .flex-qualities p {
-    display: none;
-  }
-
   .flex-qualities div {
-    width: calc(50% - 60px);
-    text-align: center;
+    flex-basis: calc((100% - 30px) / 2);
   }
 }
 
@@ -303,14 +295,18 @@ span {
 }
 
 @media (max-width: 40rem) {
-  .flex-qualities {
-    display: none;
-  }
-  .header-nav ul li:nth-child(3) {
-    display: none;
+  .flex-qualities div {
+    flex-basis: 100%;
   }
   .flex-content {
-    gap: 0px 10px;
+    gap: 20px 10px;
+    padding-inline: 20px;
+  }
+  .flex-content h2 {
+    margin-inline: 0;
+  }
+  .flex-about p {
+    padding-inline: 20px;
   }
   .flex-content h3 {
     padding: 20px 0 25px 20px;
@@ -338,7 +334,7 @@ span {
   }
   .flex-content h2 {
     font-size: 1.5rem;
-    margin: 10px 10px;
+    margin-block: 10px;
   }
   .flex-content h3 {
     font-size: 1.1rem;
