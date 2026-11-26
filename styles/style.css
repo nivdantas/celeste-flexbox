@@ -24,6 +24,7 @@ html {
 img {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 a {
@@ -123,12 +124,12 @@ h3 {
 
 .about-images {
   display: flex;
-  object-fit: cover;
   flex-wrap: wrap;
   gap: 10px;
 }
 
 .img-mountain-2 {
+  width: auto;
   height: 250px;
 }
 
@@ -281,7 +282,8 @@ span {
   }
 
   .img-mountain-1 {
-    height: 300px;
+    max-height: 300px;
+    width: auto;
     border-radius: 3px;
   }
   .flex-about h2,
@@ -316,7 +318,7 @@ span {
 
 @media (max-width: 34rem) {
   .img-mountain-1 {
-    height: 200px;
+    max-height: 200px;
   }
 }
 
